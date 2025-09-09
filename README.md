@@ -1,14 +1,12 @@
-# ✈️ Flight Price Prediction (R)
+# Flight Price Prediction (R)
 
 **Predicting airline ticket prices using regression models**, feature interactions, and regularized techniques in R.  
 This project delivers both **data-driven insights** into pricing factors and a **reproducible ML pipeline**.
 
-![Made with R](https://img.shields.io/badge/Made%20with-R-blue)  
-![License](https://img.shields.io/badge/license-MIT-green)
 
 ---
 
-## 📌 Overview
+## Overview
 Airline ticket pricing is highly dynamic and influenced by multiple factors: airline, route, class, stops, flight duration, and booking window.  
 The goal of this project is to:
 - Analyze historical flight pricing data
@@ -29,7 +27,7 @@ The goal of this project is to:
   - `days_left` – Days before departure  
   - `price` – Target variable  
 
-⚠️ Dataset is **not included** in this repo. Please download it from Kaggle and place it in `data/raw/`.
+
 
 ---
 
