@@ -1,32 +1,110 @@
-# Flight-Price-Prediction-using-R
+# ✈️ Flight Price Prediction (R)
 
-General Background Information:
+**Predicting airline ticket prices using regression models**, feature interactions, and regularized techniques in R.  
+This project delivers both **data-driven insights** into pricing factors and a **reproducible ML pipeline**.
 
-Flight price prediction is an important area of investigation and implementation in this era of dynamic pricing. The airlines use sophisticated algorithms that calculate ticket prices, taking into consideration a great number of factors: demand, competition, seasonality, and customer behavior. To the passengers, forecasting ticket prices helps them to plan and optimize their travel costs; in the case of airlines, it helps enhance revenue management and improve customer satisfaction. With the advancement of
-machine learning, the clear and articulate analysis of historical data enables the construction of predictive models that forecast the prices of flight tickets.
+![Made with R](https://img.shields.io/badge/Made%20with-R-blue)  
+![License](https://img.shields.io/badge/license-MIT-green)
 
+---
 
-Motivation: 
+## 📌 Overview
+Airline ticket pricing is highly dynamic and influenced by multiple factors: airline, route, class, stops, flight duration, and booking window.  
+The goal of this project is to:
+- Analyze historical flight pricing data
+- Train multiple regression models
+- Identify the most reliable predictors for **price estimation**
 
-This project is motivated by the hustle tourists go through just to get fairly priced tickets
-and the complications airlines have to endure in trying to judge the best price. Being frequent travelers, we understand the logistical headache and budgetary challenge caused by unexpectedly high ticket prices. This work aims to close this gap by applying machine learning to make flight pricing more candid and predictable. Besides, the work with advanced regression techniques in data analysis follows my aim to study the application of machine learning to more reality-based situations.
+---
 
+## 📊 Dataset
+- **Source:** [Kaggle – Flight Price Prediction Dataset](https://www.kaggle.com/datasets/shubhambathwal/flight-price-prediction)  
+- **File Required:** `data/raw/Clean_Dataset.csv`  
+- **Features:**
+  - `airline` – Airline name  
+  - `source_city` / `destination_city` – Origin & destination  
+  - `class` – Economy / Business  
+  - `stops` – Number of stops  
+  - `duration` – Flight duration (hours)  
+  - `days_left` – Days before departure  
+  - `price` – Target variable  
 
-Problem Statement:
+⚠️ Dataset is **not included** in this repo. Please download it from Kaggle and place it in `data/raw/`.
 
-The aim of this project is to provide the opportunity of developing the models that can
-predict flight ticket prices based on various parameters such as time of departure,
-destination, duration, and class. This price forecasting capability should also be in a
-position to make use of knowledge availability and help travellers in making intelligent
-choices while ensuring the optimization of travel costs. These predictions will be of great
-use in helping the airlines modify their pricing strategies accordingly.
+---
 
+## 🔎 Exploratory Data Analysis (EDA)
 
-Objectives:
+Some highlights from the dataset exploration:
 
-Understand the factors that influence ticket prices.
-Build models to predict ticket prices based on these factors.
-Test and compare multiple models to find the most accurate one.
-Provide actionable insights for travelers and businesses to improve decision- making.
+### Price Distribution
+![Price Distribution](reports/figures/price_distribution.png)
 
+### Flights by Airline
+![Flights by Airline](reports/figures/count_by_airline.png)
 
+### Ticket Prices by Class
+![Ticket Prices by Class](reports/figures/price_by_class.png)
+
+### Average Flight Duration by Source City
+![Avg Duration by Source City](reports/figures/avg_duration_by_source.png)
+
+### Stops Distribution
+![Stops Pie Chart](reports/figures/stops_pie.png)
+
+### Correlation Plot
+![Correlation Matrix](reports/figures/correlation_plot.png)
+
+---
+
+## 🤖 Models Implemented
+1. **Linear Regression** (baseline)  
+2. **Interaction Model** (captures route & time interactions)  
+3. **Polynomial Regression** (quadratic term for duration)  
+4. **Lasso Regression** (L1 regularization)  
+5. **Ridge Regression** (L2 regularization)  
+6. **Subset Selection** (forward search for best predictors)  
+
+---
+
+## 📈 Results (Test Set)
+
+| Model                  | RMSE   | R²     | Adj. R² |
+|------------------------|--------|--------|---------|
+| Linear Regression      | ~6790  | ~0.911 | ~0.911 |
+| **Interaction Model**  | **~6698** | **~0.913** | **~0.913** |
+| Polynomial Regression  | ~6772  | ~0.911 | ~0.911 |
+| Lasso Regression       | ~6792  | ~0.911 | ~0.910 |
+| Ridge Regression       | ~7072  | ~0.909 | ~0.909 |
+| Subset Selection       | ~6800+ | ~0.910 | ~0.910 |
+
+✅ **Best Model:** Interaction Regression — route & time interactions significantly improve predictions.
+
+---
+
+## 📊 Actual vs Predicted (Sample Plots)
+
+### Interaction Model
+![Actual vs Predicted (Interaction)](reports/figures/actual_vs_pred_interaction.png)
+
+### Polynomial Regression
+![Actual vs Predicted (Poly)](reports/figures/actual_vs_pred_poly.png)
+
+### Lasso Regression
+![Actual vs Predicted (Lasso)](reports/figures/actual_vs_pred_lasso.png)
+
+---
+
+## 🛠️ Tech Stack
+- **Language:** R  
+- **Libraries:** `ggplot2`, `dplyr`, `ggcorrplot`, `caTools`, `glmnet`, `Metrics`, `caret`, `leaps`, `readr`  
+- **Reproducibility:** Quarto report, Makefile, GitHub Actions (CI)  
+
+---
+
+## 🚀 How to Run
+
+### 1. Clone the repo
+```bash
+git clone https://github.com/Ganateja19/Flight-Price-Prediction-using-R.git
+cd Flight-Price-Prediction-using-R
