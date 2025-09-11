@@ -119,4 +119,13 @@ Validation: **80/20 train–test split + 10-fold cross-validation**
 
 ---
 
-## 📂 Project Structure
+
+---
+
+## ✨ Author
+👤 **Ganateja Thurpati**  
+🔗 [GitHub Repo](https://github.com/Ganateja19/Flight-Price-Prediction-using-R)  
+
+---
+
+
